@@ -2,16 +2,17 @@ html {
   padding: 0 !important;
   height: 100%;
 
-
 }
+
 body {
   margin: 0 !important;
   padding: 0 !important;
   height: 100%;
   background-color: #dadada !important;
 }
+
 .bg-color-blue {
-  background-color: #2980b9;
+  background-color: #2980b9 !important;
 }
 
 .bg-color-3d3d3d {
@@ -20,8 +21,10 @@ body {
 
 .header-login {
   height: 300px;
+  z-index: 999;
 
 }
+
 .header-login div {
   padding-top: 100px;
   color: #FFFFFF;
@@ -31,9 +34,11 @@ body {
 
 .container-principal {
   background-color: #FFFFFF !important;
-  position: static;
+  z-index: -1;
+  -webkit-box-shadow: 0px 2px 5px 1px rgba(0,0,0,0.37);
+  -moz-box-shadow: 0px 2px 5px 1px rgba(0,0,0,0.37);
+  box-shadow: 0px 2px 5px 1px rgba(0,0,0,0.37);
 }
-
 
 footer {
   width: 100%;
