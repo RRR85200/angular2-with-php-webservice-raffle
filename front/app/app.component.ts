@@ -11,16 +11,8 @@ export class AppComponent {
   private senha:String;
   private usuario: Usuario;
 
-  constructor(private httpService: HttpService) {
+  constructor() {
   }
 
-  verificaLogin(){
-    this.httpService.getJSON('http://localhost:3000/menu.json')
-      .subscribe(
-        data => this.usuario = data,
-        error => console.log(error),
-        () => console.log("Acabou")
-      );
-  }
 
 }
