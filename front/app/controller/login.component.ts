@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import {HttpService} from "./services/http.service";
-import {Usuario} from "./model/Usuario";
+import {HttpService} from "../services/http.service";
+import {Usuario} from "../model/Usuario";
 
 @Component({
-    selector: 'app',
-    templateUrl: '../template/welcome.html'
+  selector: 'app',
+  templateUrl: '../template/welcome.html'
 })
-export class AppComponent {
+export class LoginComponent {
   private email:String;
   private senha:String;
   private usuario: Usuario;
