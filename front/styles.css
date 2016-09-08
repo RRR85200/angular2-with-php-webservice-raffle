@@ -1,10 +1,14 @@
 html {
   padding: 0 !important;
+  height: 100%;
+
 
 }
 body {
   margin: 0 !important;
   padding: 0 !important;
+  height: 100%;
+  background-color: #dadada !important;
 }
 .bg-color-blue {
   background-color: #2980b9;
@@ -14,8 +18,25 @@ body {
   background-color: #3d3d3d;
 }
 
-.header {
-  height: 55px;
-  margin: 0 !important;
-  margin-top: 0 !important;
+.header-login {
+  height: 300px;
+
+}
+.header-login div {
+  padding-top: 100px;
+  color: #FFFFFF;
+  font-size: larger;
+  text-align: center;
+}
+
+.container-principal {
+  background-color: #FFFFFF !important;
+  position: static;
+}
+
+
+footer {
+  width: 100%;
+  font-size: 10px;
+  margin: 0 auto;
 }
