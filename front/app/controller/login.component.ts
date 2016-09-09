@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from "@angular/core";
 import {HttpService} from "../services/http.service";
 import {Usuario} from "../model/Usuario";
 
@@ -8,8 +8,8 @@ import {Usuario} from "../model/Usuario";
 })
 export class LoginComponent {
 
-  email:string;
-  senha:string;
+  email: string;
+  senha: string;
   usuario: Usuario;
 
 
@@ -17,14 +17,16 @@ export class LoginComponent {
 
   }
 
-  verificaLogin(){
+  verificaLogin() {
     // this.httpService.getJSON('http://localhost:3000/menu.json')
     //   .subscribe(
     //     data => this.usuario = data,
     //     error => console.log(error),
     //     () => console.log("Acabou")
     //   );
+    if (this.usuario.permite != false) {
 
+    }
   }
 
 }
