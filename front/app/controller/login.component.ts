@@ -4,7 +4,7 @@ import {Usuario} from "../model/Usuario";
 
 @Component({
   selector: 'app',
-  templateUrl: '../template/welcome.html'
+  templateUrl: '../template/login.html'
 })
 export class LoginComponent {
   private email:String;
