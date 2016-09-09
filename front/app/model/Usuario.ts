@@ -1,6 +1,5 @@
 export class Usuario {
-  id: number;
-  nome: string;
+  permite: boolean = false;
   email: string;
   senha: string;
 }

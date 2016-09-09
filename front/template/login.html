@@ -22,15 +22,15 @@
 
         <div class="col-md-6">
           <div class="input-group input-group-lg">
-            <span class="input-group-addon" id="email">@</span>
+            <span class="input-group-addon" id="email">✉</span>
             <input type="email" class="form-control" placeholder="Seu e-mail aqui" aria-describedby="email" name="email"
-                   id="inputEmail" required>
+                   id="inputEmail" [(ngModel)]="email" value="{{email}}" required>
           </div>
           <br>
           <div class="input-group input-group-lg">
-            <span class="input-group-addon" id="senha"> * </span>
+            <span class="input-group-addon" id="senha">🔒</span>
             <input type="password" class="form-control" placeholder="Sua senha aqui" aria-describedby="senha"
-                   name="senha"
+                   name="senha" [(ngModel)]="senha" value="{{senha}}"
                    id="inputSenha" required>
           </div>
           <br/>
@@ -38,7 +38,7 @@
           <div class="col-md-4"></div>
           <div class="col-md-4">
             <button type="button" class="btn btn-primary btn-lg text-right dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                    aria-expanded="false">Entrar!</button>
+                    aria-expanded="false" (click)="verificaLogin()">Entrar!</button>
           </div>
 
         </div>
@@ -48,6 +48,7 @@
     </div>
   </div>
 </section>
+<br/>
 <footer style="width: 100%; text-align: center">
   Feito com <span style="color: #d80404;">❤</span> por: <a href="http://github.com/marciioluucas">Márcio Lucas</a>
 </footer>
