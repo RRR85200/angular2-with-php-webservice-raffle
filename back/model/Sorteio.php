@@ -1,6 +1,14 @@
 <?php
 
-class Sorteio {
+/**
+ * Created by PhpStorm.
+ * User: Márcio Lucas
+ * E-mail: marciioluucas@gmail.com
+ * Date: 09/09/2016
+ * Time: 13:48
+ */
+class Sorteio extends Banco
+{
 
     private $id;
     private $descricao;

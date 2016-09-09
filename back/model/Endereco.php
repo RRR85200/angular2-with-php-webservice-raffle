@@ -7,7 +7,7 @@
  * Date: 09/09/2016
  * Time: 13:48
  */
-class Endereco
+class Endereco extends Banco
 {
     private $id;
     private $idUsuario;
