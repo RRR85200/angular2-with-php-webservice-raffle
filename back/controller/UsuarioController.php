@@ -1,5 +1,5 @@
 <?php
-
+require_once "../model/Usuario.php";
 /**
  * Created by PhpStorm.
  * User: Márcio Lucas
@@ -9,5 +9,46 @@
  */
 class UsuarioController
 {
+    private $usuario;
+    public function __construct()
+    {
+        $this->usuario = new Usuario();
 
+        if (isset($_GET["entrar"])) {
+
+            echo $this->usuario->logarUsuario($_GET['email'], $_GET['senha']);
+        }
+    }
+    private function cadastrar()
+    {
+
+    }
+    private function alterar()
+    {
+
+    }
+    private function listar()
+    {
+
+    }
+    private function excluir()
+    {
+
+    }
+
+    public function retornaNumUsuarios(){
+
+    }
+    public function retornaNumUsuariosComDesativados(){
+
+    }
+
+    public function retornaAlgoUsuario($campo_sql, $id_usuario){
+
+    }
+
+    public function consultaQuantosProdutosCadastradosPeloUsuario($id_usuario){
+
+    }
 }
+new usuarioController();

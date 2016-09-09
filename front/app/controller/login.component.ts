@@ -3,30 +3,31 @@ import {HttpService} from "../services/http.service";
 import {Usuario} from "../model/Usuario";
 
 @Component({
-  selector: 'login',
-  templateUrl: '../template/login.html'
+    selector: 'login',
+    templateUrl: '../template/login.html'
 })
 export class LoginComponent {
 
-  email: string;
-  senha: string;
-  usuario: Usuario;
+    email:string;
+    senha:string;
+    nome:string;
+    usuario:Usuario;
 
 
-  constructor(private httpService: HttpService) {
-
-  }
-
-  verificaLogin() {
-    // this.httpService.getJSON('http://localhost:3000/menu.json')
-    //   .subscribe(
-    //     data => this.usuario = data,
-    //     error => console.log(error),
-    //     () => console.log("Acabou")
-    //   );
-    if (this.usuario.permite != false) {
+    constructor(private httpService:HttpService) {
 
     }
-  }
+    retornaValores() {
+        alert("Nome: " +this.usuario.nome);
+    }
+    verificaLogin() {
+        this.httpService.getJSON('http://localhost/back/controller/UsuarioController.php?entrar=1&email=' + this.email + '&senha=' + this.senha)
+            .subscribe(
+                data => this.usuario = data,
+                error => console.log(error),
+                () => this.retornaValores()
+            )}
+
+
 
 }

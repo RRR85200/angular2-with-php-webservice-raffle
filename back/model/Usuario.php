@@ -7,12 +7,12 @@
  * Date: 09/09/2016
  * Time: 13:48
  */
-class Usuario extends Banco
+class Usuario
 {
     private $id;
     private $nome;
-    private $email;
-    private $senha;
+    private $email = "teste";
+    private $senha = "123";
 
     /**
      * @return mixed
@@ -27,7 +27,7 @@ class Usuario extends Banco
      */
     public function setId($id)
     {
-        $this->id = $id;
+       return $this->id = $id;
     }
 
     /**
@@ -43,7 +43,7 @@ class Usuario extends Banco
      */
     public function setNome($nome)
     {
-        $this->nome = $nome;
+       return $this->nome = $nome;
     }
 
     /**
@@ -59,7 +59,7 @@ class Usuario extends Banco
      */
     public function setEmail($email)
     {
-        $this->email = $email;
+       return $this->email = $email;
     }
 
     /**
@@ -75,26 +75,35 @@ class Usuario extends Banco
      */
     public function setSenha($senha)
     {
-        $this->senha = $senha;
+       return $this->senha = $senha;
     }
 
+    function logarUsuario($email, $senha) {
+        if ($this->email == $email && $this->senha == $senha) {
+            return "
+            {
+            \"nome\":\"Marcio Lucas\",
+            }";
+        }
+    }
 
-    function cadastrar()
+    function cadastrarUsuario()
     {
-
+       return $this->cadastrar();
     }
 
-    function alterar()
+    function alterarUsuario()
     {
-
+       return $this->alterar();
     }
 
-    function excluir()
+    function excluirUsuario()
     {
-
+        return $this->excluir();
     }
 
-    function listar() {
-
+    function listarUsuario()
+    {
+       return $this->listar();
     }
 }

@@ -1,5 +1,5 @@
 export class Usuario {
-  permite: boolean = false;
+  nome: string;
   email: string;
   senha: string;
 }
