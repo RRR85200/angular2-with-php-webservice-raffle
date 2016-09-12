@@ -11,11 +11,7 @@ class SorteioController
 {
     public function __construct()
     {
-        $this->usuario = new Usuario();
 
-        if (isset($_GET["entrar"]) && $_GET['entrar'] == "1") {
-            echo $this->usuario->logarUsuario($_GET['email'], $_GET['senha']);
-        }
     }
     public function cadastrar()
     {
