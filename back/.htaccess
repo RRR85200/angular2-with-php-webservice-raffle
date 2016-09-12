@@ -1,0 +1,3 @@
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^api.localhost$
+RewriteRule ^(.*)$ http://localhost/api/$1 [P]

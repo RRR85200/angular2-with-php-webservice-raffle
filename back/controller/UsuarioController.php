@@ -14,9 +14,11 @@ class UsuarioController
     {
         $this->usuario = new Usuario();
 
-        if (isset($_GET["entrar"])) {
-
-            echo $this->usuario->logarUsuario($_GET['email'], $_GET['senha']);
+        if (isset($_GET["entrar"]) && $_GET['entrar'] == "1") {
+			header('Content-Type: application/json');
+			header('Access-Control-Allow-Origin: *');
+			header('Access-Control-Allow-Methods: GET, POST, PUT');
+			echo $this->usuario->logarUsuario($_GET['email'], $_GET['senha']);
         }
     }
     private function cadastrar()

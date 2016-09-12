@@ -11,7 +11,7 @@ class Usuario
 {
     private $id;
     private $nome;
-    private $email = "teste";
+    private $email = "marcio";
     private $senha = "123";
 
     /**
@@ -80,10 +80,13 @@ class Usuario
 
     function logarUsuario($email, $senha) {
         if ($this->email == $email && $this->senha == $senha) {
-            return "
-            {
-            \"nome\":\"Marcio Lucas\",
-            }";
+			
+            return 
+"
+{
+\"nome\": \"Marcio Lucas\",
+\"email\": \"".$email."\"
+}";
         }
     }
 
