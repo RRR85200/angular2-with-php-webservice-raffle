@@ -35,45 +35,54 @@ class Banco
         $this->senha = "";
         $this->link = mysqli_connect($this->host, $this->usuario, $this->senha, $this->banco);
         if ($this->link) {
-            return "
+
+            echo "
             {
   \"banco\": {
     \"tipo_banco\": \"MySQL\",
     \"conectado\": true,
     \"ipbanco\": \"$this->host\",
-    \"erro\": \"" . mysqli_error($this->link) . "\"
+    \"erro\": \"" . mysqli_error($this->link) . "\",
     \"obs\": \"SHOW o/\"
   }
 }";
+            return $this->link;
+        } else {
+            echo "
+            {
+  \"banco\": {
+    \"tipo_banco\": \"MySQL\",
+    \"conectado\": true,
+    \"ipbanco\": \"$this->host\",
+    \"erro\": \"" . mysqli_error($this->link) . "\",
+    \"obs\": \"SHOW o/\"
+  }
+}";
+            return die();
+        }
+    }
+
+    public function typeSQL($sql)
+    {
+
+        return mysqli_query($this->conexao(), $sql);
+
+    }
+
+    public function cadastrar($sql)
+    {
+        if ($this->typeSQL($sql)) {
+            return "
+        {
+            \"origem\":{
+                \"classe\":\"banco\",
+                \"metodo\":\"cadastrar\"
+            },
+            \"msg\": \"Sucesso!\"
+        }
+        ";
         } else {
             return "
-            {
-  \"banco\": {
-    \"tipo_banco\": \"MySQL\",
-    \"conectado\": true,
-    \"ipbanco\": \"$this->host\",
-    \"erro\": \"" . mysqli_error($this->link) . "\"
-    \"obs\": \"SHOW o/\"
-  }
-}";
-
-        }
-    }
-
-    public function cadastrar()
-    {
-        if(1==1) {
-            return "
-        {
-            \"origem\":{
-                \"classe\":\"banco\",
-                \"metodo\":\"cadastrar\"
-            },
-            \"msg\": \"Sucesso!\"
-        }
-        ";
-        }else{
-            return "
         {
             \"origem\":{
                 \"classe\":\"banco\",
@@ -86,9 +95,9 @@ class Banco
 
     }
 
-    public function alterar()
+    public function alterar($sql)
     {
-        if(1==1) {
+        if ($this->typeSQL($sql)) {
             return "
         {
             \"origem\":{
@@ -98,7 +107,7 @@ class Banco
             \"msg\": \"Sucesso!\"
         }
         ";
-        }else{
+        } else {
             return "
         {
             \"origem\":{
@@ -112,9 +121,9 @@ class Banco
 
     }
 
-    public function excluir()
+    public function excluir($sql)
     {
-        if(1==1){
+        if ($this->typeSQL($sql)) {
             return "
         {
             \"origem\":{
@@ -124,7 +133,7 @@ class Banco
             \"msg\": \"Sucesso!\"
         }
         ";
-        }else{
+        } else {
             return "
         {
             \"origem\":{
@@ -140,27 +149,53 @@ class Banco
 
     public function listar()
     {
-        if(1==1){
-            return "
-        {
-            \"origem\":{
-                \"classe\":\"banco\",
-                \"metodo\":\"cadastrar\"
-            },
-            \"msg\": \"Sucesso!\"
-        }
-        ";
-        }else{
-            return "
-        {
-            \"origem\":{
-                \"classe\":\"banco\",
-                \"metodo\":\"cadastrar\"
-            },
-            \"msg\": \"Erro!\"
-        }
-        ";
-        }
+        $this->sql = "SELECT * FROM " . $this->tabela . " WHERE " . $this->condicao . " order by id desc";
+        $this->query = mysqli_query($this->conexao(), $this->sql);
+        $this->result = mysqli_affected_rows($this->conexao());
+        if (mysqli_num_rows($this->query) > 0) {
+            echo "
+            {
+            \"busca\": {
+            \"tabela\": \"" . $this->tabela . "\",
+            \"campos\": \"[";
+            for ($i = 0; $i < count($this->campos); $i++) {
+                echo "\"nome_campo\": \"" . str_replace("_", " ", $this->campos[$i]) . "\",";
+                $j = 1;
 
+                echo "\"valores\": [{";
+                while ($r = mysqli_fetch_array($this->query, MYSQLI_ASSOC)) {
+
+                    echo "\"valor\": \"".$r[$this->campos[$i]]."\"";
+//                for ($i = 0; $i < $cont; $i++) {
+//                    if ($i < $cont - 1) {
+//                        $stringParametros .= $this->campos[$i] . "=" . $r[$this->campos[$i]] . "&";
+//                    } else {
+//                        $stringParametros .= $this->campos[$i] . "=" . $r[$this->campos[$i]];
+//                    }
+//                }
+                    if(mysqli_num_rows($this->query) != $j){
+
+                        echo "},";
+                    }else{
+                        echo "}";
+                    }
+                $j++;
+                }
+                echo "]";
+                if($i != count($this->campos) - 1){
+
+                    echo "},";
+                }else{
+                    echo "}";
+                }
+            }
+
+            echo "]";
+            echo "}";
+
+            echo "}";
+        } else {
+            echo "";
+        }
     }
 }
