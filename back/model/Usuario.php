@@ -87,6 +87,13 @@ class Usuario
 \"nome\": \"Marcio Lucas\",
 \"email\": \"".$email."\"
 }";
+        }else{
+            return
+"
+{
+\"erro:\": \"Erro\"
+}
+";
         }
     }
 

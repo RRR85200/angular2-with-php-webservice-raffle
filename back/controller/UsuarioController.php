@@ -35,19 +35,5 @@ class UsuarioController
 
     }
 
-    public function retornaNumUsuarios(){
-
-    }
-    public function retornaNumUsuariosComDesativados(){
-
-    }
-
-    public function retornaAlgoUsuario($campo_sql, $id_usuario){
-
-    }
-
-    public function consultaQuantosProdutosCadastradosPeloUsuario($id_usuario){
-
-    }
 }
 new usuarioController();

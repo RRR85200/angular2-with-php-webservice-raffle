@@ -16,3 +16,4 @@ class Delete
         header('Access-Control-Allow-Methods: GET, POST, PUT');
     }
 }
+new Delete();
