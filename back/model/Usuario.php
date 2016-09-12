@@ -7,7 +7,7 @@
  * Date: 09/09/2016
  * Time: 13:48
  */
-class Usuario
+class Usuario extends Banco
 {
     private $id;
     private $nome;

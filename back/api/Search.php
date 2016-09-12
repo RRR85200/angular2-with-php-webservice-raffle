@@ -15,5 +15,64 @@ class Search
         header('Access-Control-Allow-Origin: *');
         header('Access-Control-Allow-Methods: GET, POST, PUT');
     }
+    function doItUsuario()
+{
+    if (isset($_GET[''])) {
+        return ";";
+    } else {
+        return
+            "
+{
+\"erro\":\"API-INSERT 001 | Usuario:\",
+\"msg\":\"Não informado qual método a seguir.\"
+}
+";
+    }
+}
+
+    function doItSorteio()
+    {
+        if (isset($_GET[''])) {
+            return ";";
+        } else {
+            return
+                "
+{
+\"erro\":\"API-INSERT 002 | Sorteio:\",
+\"msg\":\"Não informado qual método a seguir.\"
+}
+";
+        }
+    }
+
+    function doItEndereco()
+    {
+        if (isset($_GET[''])) {
+            return ";";
+        } else {
+            return
+                "
+{
+\"erro\":\"API-INSERT 001 | Usuario-Endereço:\",
+\"msg\":\"Não informado qual método a seguir.\"
+}
+";
+        }
+    }
+
+    function doItConcorrenteSorteio()
+    {
+        if (isset($_GET[''])) {
+            return ";";
+        } else {
+            return
+                "
+{
+\"erro\":\"API-INSERT 001 | Concorrente Sorteio:\",
+\"msg\":\"Não informado qual método a seguir.\"
+}
+";
+        }
+    }
 }
 new Search();

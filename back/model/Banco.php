@@ -62,7 +62,7 @@ class Banco
 
     public function cadastrar()
     {
-        if(1==1){
+        if(1==1) {
             return "
         {
             \"origem\":{
@@ -88,7 +88,7 @@ class Banco
 
     public function alterar()
     {
-        if(1==1){
+        if(1==1) {
             return "
         {
             \"origem\":{
