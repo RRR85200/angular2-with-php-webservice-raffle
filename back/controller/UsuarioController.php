@@ -18,19 +18,19 @@ class UsuarioController
 			echo $this->usuario->logarUsuario($_GET['email'], $_GET['senha']);
         }
     }
-    private function cadastrar()
+    public function cadastrar()
     {
 
     }
-    private function alterar()
+    public function alterar()
     {
 
     }
-    private function listar()
+    public function listar()
     {
 
     }
-    private function excluir()
+    public function excluir()
     {
 
     }
