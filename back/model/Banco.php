@@ -190,9 +190,7 @@ class Banco
                 }
             }
 
-            echo "]";
-            echo "}";
-
+            echo "]}";
             echo "}";
         } else {
             echo "";
