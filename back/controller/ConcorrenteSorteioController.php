@@ -1,5 +1,5 @@
 <?php
-
+require_once '../model/ConcorrenteSorteio.php';
 /**
  * Created by PhpStorm.
  * User: Márcio Lucas
@@ -9,9 +9,11 @@
  */
 class ConcorrenteSorteioController
 {
+    private $concorrenteSorteio;
+
     public function __construct()
     {
-
+    $this->concorrenteSorteio = new ConcorrenteSorteio();
     }
     public function cadastrar()
     {

@@ -1,5 +1,5 @@
 <?php
-
+require_once "../model/Sorteio.php";
 /**
  * Created by PhpStorm.
  * User: Márcio Lucas
@@ -9,25 +9,32 @@
  */
 class SorteioController
 {
+    private $sorteio;
+
     public function __construct()
     {
-
+        $this->sorteio = new Sorteio();
     }
+
     public function cadastrar()
     {
 
     }
+
     public function alterar()
     {
 
     }
+
     public function listar()
     {
 
     }
+
     public function excluir()
     {
 
     }
 }
+
 new SorteioController();

@@ -1,4 +1,5 @@
 <?php
+require_once '../model/Endereco.php';
 
 /**
  * Created by PhpStorm.
@@ -9,25 +10,32 @@
  */
 class EnderecoController
 {
+    private $endereco;
+
     public function __construct()
     {
-
+        $this->endereco = new Endereco();
     }
+
     public function cadastrar()
     {
 
     }
+
     public function alterar()
     {
 
     }
+
     public function listar()
     {
 
     }
+
     public function excluir()
     {
 
     }
 }
+
 new EnderecoController();
