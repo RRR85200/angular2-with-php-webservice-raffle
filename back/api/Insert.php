@@ -46,23 +46,23 @@ class Insert
 
     function doItUsuario()
     {
-
+        $this->usuarioController->cadastrar();
     }
 
 
     function doItSorteio()
     {
-
+        $this->sorteioController->cadastrar();
     }
 
     function doItEndereco()
     {
-
+        $this->enderecoController->cadastrar();
     }
 
     function doItConcorrenteSorteio()
     {
-
+        $this->concorrenteSorteioController->cadastrar();
     }
 }
 new Insert();
