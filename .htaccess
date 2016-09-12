@@ -1,0 +1,7 @@
+RewriteEngine on
+RewriteRule ^api/([a-zA-Z0-9_-]+)/$ back/api/$1.php
+RewriteRule ^api/$ back/api/
+RewriteRule ^api/([a-zA-Z0-9_-]+)\.php$ back/api/$1.php
+
+#Linguagem padrão do site.
+DefaultLanguage pt-br
