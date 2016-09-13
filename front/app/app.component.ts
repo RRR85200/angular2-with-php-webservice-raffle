@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {LoginComponent} from '../app/controller/login.component'
+import {LoginComponent} from './view/login.component'
 
 @Component({
   selector: 'app',
