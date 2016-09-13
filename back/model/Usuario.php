@@ -99,21 +99,21 @@ class Usuario extends Banco
 
     function cadastrarUsuario()
     {
-       return $this->cadastrar();
+       return $this->cadastrar("insert into usuario (nome, email, senha) values ('".$this->nome."', '".$this->email."', '".$this->senha."')");
     }
 
     function alterarUsuario()
     {
-       return $this->alterar();
+       return $this->alterar("update usuario set nome = '$this->nome', email = '$this->email', senha = '$this->senha' ");
     }
 
     function excluirUsuario()
     {
-        return $this->excluir();
+        return $this->excluir("update usuario set ativado = 0");
     }
 
     function listarUsuario()
     {
-       return $this->listar();
+       $this->listar();
     }
 }
