@@ -20,7 +20,7 @@ class UsuarioController
     }
     public function cadastrar()
     {
-
+        echo $this->usuario->cadastrar($sql);
     }
     public function alterar()
     {
