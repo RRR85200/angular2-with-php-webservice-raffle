@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpService} from "../services/http.service";
+import {Headers, Http} from "@angular/http";
 
 @Component({
     moduleId: module.id,
@@ -8,10 +9,16 @@ import {HttpService} from "../services/http.service";
     providers: [HttpService]
 })
 export class CadastroUsuarioComponent implements OnInit {
-    constructor(private http: HttpService) { }
+
+    private http: Http;
+
+    constructor(private httpService: HttpService) { }
 
     ngOnInit() { }
 
-    cadastrar() { }
+    cadastrar(username, password) {
+
+    }
+
     
 }
