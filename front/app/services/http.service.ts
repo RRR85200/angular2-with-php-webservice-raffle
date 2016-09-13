@@ -10,28 +10,34 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class HttpService {
 
-  constructor(private http: Http) {
-  }
-
-  getJSON(url:string) {
-    try {
-      return this.http.get(url)
-        .map((res: Response) => res.json())
-
-
-    } catch (Erro){
-      alert('Erro na requisição HTTP ' + Erro.message)
+    constructor(private http:Http) {
     }
-  }
 
-  postJSON(url:string, body:string) {
-    var headers = new Headers();
-    headers.append('Content-Type', 'application/x-www-form-urlencoded');
+    getJSON(url:string) {
+        try {
+            return this.http.get(url)
+                .map((res:Response) => res.json())
 
-    this.http
-        .post(url, body, { headers: headers })
-        .map(response => response.json())
-  }
+
+        } catch (Erro) {
+            console.log('Erro na requisição HTTP GET' + Erro.message)
+        }
+    }
+
+    postJSON(url:string, body:string) {
+        var headers = new Headers();
+        try {
+            headers.append('Content-Type', 'application/x-www-form-urlencoded');
+
+            return this.http
+                .post(url, body, {headers: headers})
+                .map(response => response.json())
+        }
+        catch (Erro) {
+            console.log('Erro na requisição HTTP POST' + Erro.message)
+        }
+    }
+
 
 }
 
