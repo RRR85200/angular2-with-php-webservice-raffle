@@ -80,23 +80,23 @@ class Sorteio extends Banco
     }
 
 
-
-    function cadastrar()
-    {
-
-    }
-
-    function alterar()
-    {
-
-    }
-
-    function excluir()
-    {
-
-    }
-
-    function listar() {
-
-    }
+//
+//    function cadastrar()
+//    {
+//
+//    }
+//
+//    function alterar()
+//    {
+//
+//    }
+//
+//    function excluir()
+//    {
+//
+//    }
+//
+//    function listar() {
+//
+//    }
 }

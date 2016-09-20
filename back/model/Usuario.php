@@ -112,8 +112,9 @@ class Usuario extends Banco
         return $this->excluir("update usuario set ativado = 0");
     }
 
-    function listarUsuario()
+    function listarUsuario($filter, $filterValue)
     {
-       $this->listar();
+        $this->campos = ["id","nome","email","senha"];
+       $this->listar($filter, $filterValue);
     }
 }

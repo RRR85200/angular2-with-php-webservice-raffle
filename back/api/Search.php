@@ -1,4 +1,5 @@
 <?php
+require_once '../model/Banco.php';
 require_once '../model/Usuario.php';
 require_once '../model/Sorteio.php';
 require_once '../model/Endereco.php';
@@ -23,7 +24,10 @@ class Search
         header('Content-Type: application/json');
         header('Access-Control-Allow-Origin: *');
         header('Access-Control-Allow-Methods: GET, POST, PUT');
+        if(isset($_GET['q']) && $_GET['q'] == "usuario") {
 
+            $this->doItUsuario();
+        }
 
 
 
@@ -32,8 +36,10 @@ class Search
     function doItUsuario()
 {
     $this->usuario = new Usuario();
-    if (isset($_GET['q'])) {
-        $this->usuario->listar($_GET['q']);
+    if (isset($_GET['filtro']) && $_GET['filtro'] == "ativado" &&
+        isset($_GET['valorFiltro']) && $_GET['valorFiltro'] == "0") {
+        $this->usuario->tabela ="usuario";
+        echo $this->usuario->listarUsuario(1, 1);
 
         return ";";
     } else {
@@ -46,53 +52,53 @@ class Search
 ";
     }
 }
-
-    function doItSorteio()
-    {
-        $this->sorteio = new Sorteio();
-        if (isset($_GET['q'])) {
-            return ";";
-        } else {
-            return
-                "
-{
-\"erro\":\"API-INSERT 002 | Sorteio:\",
-\"msg\":\"Não informado qual método a seguir.\"
-}
-";
-        }
-    }
-
-    function doItEndereco()
-    {
-        $this->endereco = new Endereco();
-        if (isset($_GET['q'])) {
-            return ";";
-        } else {
-            return
-                "
-{
-\"erro\":\"API-INSERT 001 | Usuario-Endereço:\",
-\"msg\":\"Não informado qual método a seguir.\"
-}
-";
-        }
-    }
-
-    function doItConcorrenteSorteio()
-    {
-        $this->concorrenteSorteio = new ConcorrenteSorteio();
-        if (isset($_GET['q'])) {
-            return ";";
-        } else {
-            return
-                "
-{
-\"erro\":\"API-INSERT 001 | Concorrente Sorteio:\",
-\"msg\":\"Não informado qual método a seguir.\"
-}
-";
-        }
-    }
+//
+//    function doItSorteio()
+//    {
+//        $this->sorteio = new Sorteio();
+//        if (isset($_GET['q'])) {
+//            return ";";
+//        } else {
+//            return
+//                "
+//{
+//\"erro\":\"API-INSERT 002 | Sorteio:\",
+//\"msg\":\"Não informado qual método a seguir.\"
+//}
+//";
+//        }
+//    }
+//
+//    function doItEndereco()
+//    {
+//        $this->endereco = new Endereco();
+//        if (isset($_GET['q'])) {
+//            return ";";
+//        } else {
+//            return
+//                "
+//{
+//\"erro\":\"API-INSERT 001 | Usuario-Endereço:\",
+//\"msg\":\"Não informado qual método a seguir.\"
+//}
+//";
+//        }
+//    }
+//
+//    function doItConcorrenteSorteio()
+//    {
+//        $this->concorrenteSorteio = new ConcorrenteSorteio();
+//        if (isset($_GET['q'])) {
+//            return ";";
+//        } else {
+//            return
+//                "
+//{
+//\"erro\":\"API-INSERT 001 | Concorrente Sorteio:\",
+//\"msg\":\"Não informado qual método a seguir.\"
+//}
+//";
+//        }
+//    }
 }
 new Search();

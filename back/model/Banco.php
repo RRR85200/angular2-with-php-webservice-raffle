@@ -34,32 +34,33 @@ class Banco
         $this->usuario = "root";
         $this->senha = "";
         $this->link = mysqli_connect($this->host, $this->usuario, $this->senha, $this->banco);
-        if ($this->link) {
-
-            echo "
-            {
-  \"banco\": {
-    \"tipo_banco\": \"MySQL\",
-    \"conectado\": true,
-    \"ipbanco\": \"$this->host\",
-    \"erro\": \"" . mysqli_error($this->link) . "\",
-    \"obs\": \"SHOW o/\"
-  }
-}";
-            return $this->link;
-        } else {
-            echo "
-            {
-  \"banco\": {
-    \"tipo_banco\": \"MySQL\",
-    \"conectado\": true,
-    \"ipbanco\": \"$this->host\",
-    \"erro\": \"" . mysqli_error($this->link) . "\",
-    \"obs\": \"SHOW o/\"
-  }
-}";
-            return die();
-        }
+        return $this->link;
+//        if ($this->link) {
+//
+//            echo "
+//            {
+//  \"banco\": {
+//    \"tipo_banco\": \"MySQL\",
+//    \"conectado\": true,
+//    \"ipbanco\": \"$this->host\",
+//    \"erro\": \"" . mysqli_error($this->link) . "\",
+//    \"obs\": \"SHOW o/\"
+//  }
+//}";
+//            return $this->link;
+//        } else {
+//            echo "
+//            {
+//  \"banco\": {
+//    \"tipo_banco\": \"MySQL\",
+//    \"conectado\": true,
+//    \"ipbanco\": \"$this->host\",
+//    \"erro\": \"" . mysqli_error($this->link) . "\",
+//    \"obs\": \"SHOW o/\"
+//  }
+//}";
+//            return die();
+//        }
     }
 
     public function typeSQL($sql)
@@ -147,53 +148,54 @@ class Banco
 
     }
 
-    public function listar($filtro)
+    public function listar($filtro, $valorFiltro)
     {
-        $this->sql = "SELECT * FROM " . $this->tabela . " WHERE " . $filtro . " order by id desc";
+        $campos = "";
+        for ($a = 0; $a < count($this->campos); $a++) {
+            if ($a < count($this->campos) - 1) {
+
+                $campos .= $this->campos[$a] . ",";
+            } else {
+                $campos .= $this->campos[$a];
+            }
+        }
+        $this->sql = "SELECT $campos FROM " . $this->tabela . " WHERE " . $filtro . "= " . $valorFiltro . " order by id asc";
+        echo $this->sql;
         $this->query = mysqli_query($this->conexao(), $this->sql);
         $this->result = mysqli_affected_rows($this->conexao());
         if (mysqli_num_rows($this->query) > 0) {
             echo "
-            {
-            \"busca\": {
-            \"tabela\": \"" . $this->tabela . "\",
-            \"campos\": \"[";
-            for ($i = 0; $i < count($this->campos); $i++) {
-                echo "\"nome_campo\": \"" . str_replace("_", " ", $this->campos[$i]) . "\",";
+ {
+    \"busca\": {
+        \"" . $this->tabela . "\" : {[\n        {\n        ";
                 $j = 1;
-
-                echo "\"valores\": [{";
                 while ($r = mysqli_fetch_array($this->query, MYSQLI_ASSOC)) {
+                    for ($i = 0; $i < count($this->campos); $i++) {
+                    echo
+"  {\"" . str_replace("_", " ", $this->campos[$i]) . "\": \"" . $r[$this->campos[$i]] . "\"";
 
-                    echo "\"valor\": \"".$r[$this->campos[$i]]."\"";
-//                for ($i = 0; $i < $cont; $i++) {
-//                    if ($i < $cont - 1) {
-//                        $stringParametros .= $this->campos[$i] . "=" . $r[$this->campos[$i]] . "&";
-//                    } else {
-//                        $stringParametros .= $this->campos[$i] . "=" . $r[$this->campos[$i]];
-//                    }
-//                }
-                    if(mysqli_num_rows($this->query) != $j){
+                    if ($i <count($this->campos) - 1) {
+                        echo "},\n        ";
 
-                        echo "},";
-                    }else{
-                        echo "}";
+                    } else {
+                        echo "} \n        ";
                     }
-                $j++;
-                }
-                echo "]";
-                if($i != count($this->campos) - 1){
 
-                    echo "},";
-                }else{
-                    echo "}";
                 }
+        if(mysqli_num_rows($this->query) != $j){
+            echo "},\n        ";
+        }else{
+            echo "}\n        ";
+        }
+                    $j++;
+
             }
+            echo "\n    }";
+            echo "\n }";
 
-            echo "]}";
-            echo "}";
+
         } else {
-            echo "";
+            echo "Nada";
         }
     }
 }
