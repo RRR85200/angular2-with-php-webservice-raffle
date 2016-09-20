@@ -1,5 +1,8 @@
 <?php
-
+require_once '../model/Usuario.php';
+require_once '../model/Sorteio.php';
+require_once '../model/Endereco.php';
+require_once '../model/ConcorrenteSorteio.php';
 /**
  * Created by PhpStorm.
  * User: Márcio Lucas
@@ -9,15 +12,29 @@
  */
 class Search
 {
+    private $usuario;
+    private $sorteio;
+    private $endereco;
+    private $concorrenteSorteio;
+
+
     function __construct()
     {
         header('Content-Type: application/json');
         header('Access-Control-Allow-Origin: *');
         header('Access-Control-Allow-Methods: GET, POST, PUT');
+
+
+
+
+
     }
     function doItUsuario()
 {
-    if (isset($_GET[''])) {
+    $this->usuario = new Usuario();
+    if (isset($_GET['q'])) {
+        $this->usuario->listar($_GET['q']);
+
         return ";";
     } else {
         return
@@ -32,7 +49,8 @@ class Search
 
     function doItSorteio()
     {
-        if (isset($_GET[''])) {
+        $this->sorteio = new Sorteio();
+        if (isset($_GET['q'])) {
             return ";";
         } else {
             return
@@ -47,7 +65,8 @@ class Search
 
     function doItEndereco()
     {
-        if (isset($_GET[''])) {
+        $this->endereco = new Endereco();
+        if (isset($_GET['q'])) {
             return ";";
         } else {
             return
@@ -62,7 +81,8 @@ class Search
 
     function doItConcorrenteSorteio()
     {
-        if (isset($_GET[''])) {
+        $this->concorrenteSorteio = new ConcorrenteSorteio();
+        if (isset($_GET['q'])) {
             return ";";
         } else {
             return

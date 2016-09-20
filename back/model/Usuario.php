@@ -11,8 +11,8 @@ class Usuario extends Banco
 {
     private $id;
     private $nome;
-    private $email = "marcio";
-    private $senha = "123";
+    private $email;
+    private $senha;
 
     /**
      * @return mixed

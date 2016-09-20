@@ -147,9 +147,9 @@ class Banco
 
     }
 
-    public function listar()
+    public function listar($filtro)
     {
-        $this->sql = "SELECT * FROM " . $this->tabela . " WHERE " . $this->condicao . " order by id desc";
+        $this->sql = "SELECT * FROM " . $this->tabela . " WHERE " . $filtro . " order by id desc";
         $this->query = mysqli_query($this->conexao(), $this->sql);
         $this->result = mysqli_affected_rows($this->conexao());
         if (mysqli_num_rows($this->query) > 0) {

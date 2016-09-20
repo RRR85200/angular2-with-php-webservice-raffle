@@ -16,7 +16,7 @@ export class CadastroUsuarioComponent implements OnInit {
 
     ngOnInit() { }
 
-    cadastrar(username, password) {
+    cadastrar(username:string, password:string) {
 
     }
 
