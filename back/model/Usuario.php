@@ -1,5 +1,5 @@
 <?php
-
+require_once 'Banco.php';
 /**
  * Created by PhpStorm.
  * User: Márcio Lucas
@@ -99,17 +99,17 @@ class Usuario extends Banco
 
     function cadastrarUsuario()
     {
-       return $this->cadastrar("insert into usuario (nome, email, senha) values ('".$this->nome."', '".$this->email."', '".$this->senha."')");
+        $this->cadastrar("insert into usuario (nome, email, senha) values ('".$this->nome."', '".$this->email."', '".$this->senha."')");
     }
 
     function alterarUsuario()
     {
-       return $this->alterar("update usuario set nome = '$this->nome', email = '$this->email', senha = '$this->senha' ");
+        $this->alterar("update usuario set nome = '$this->nome', email = '$this->email', senha = '$this->senha' ");
     }
 
     function excluirUsuario()
     {
-        return $this->excluir("update usuario set ativado = 0");
+         $this->excluir("update usuario set ativado = 0");
     }
 
     function listarUsuario($filter, $filterValue)

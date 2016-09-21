@@ -20,25 +20,26 @@ class Insert
 
     function __construct()
     {
+        header('Content-Type: application/json');
+        header('Access-Control-Allow-Origin: *');
+        header('Access-Control-Allow-Methods: GET, POST, PUT');
+
         $this->usuarioController = new UsuarioController();
         $this->concorrenteSorteioController = new ConcorrenteSorteioController();
         $this->enderecoController = new EnderecoController();
         $this->sorteioController = new SorteioController();
 
-        header('Content-Type: application/json');
-        header('Access-Control-Allow-Origin: *');
-        header('Access-Control-Allow-Methods: GET, POST, PUT');
 
-        if (isset($_POST['classe']) && $_POST['classe'] == "usuario") {
+        if (isset($_POST['q']) && $_POST['q'] == "usuario") {
             $this->doItUsuario();
         }
-        if (isset($_POST['classe']) && $_POST['classe'] == "sorteio") {
+        if (isset($_POST['q']) && $_POST['q'] == "sorteio") {
             $this->doItSorteio();
         }
-        if (isset($_POST['classe']) && $_POST['classe'] == "endereco") {
+        if (isset($_POST['q']) && $_POST['q'] == "endereco") {
             $this->doItEndereco();
         }
-        if (isset($_POST['classe']) && $_POST['classe'] == "concorrente-sorteio") {
+        if (isset($_POST['q']) && $_POST['q'] == "concorrente-sorteio") {
             $this->doItConcorrenteSorteio();
         }
 

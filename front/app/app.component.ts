@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-import {LoginComponent} from './view/login.component'
 
 @Component({
   selector: 'app',
-  template: '<login></login>',
+  template: '<cadastro-usuario></cadastro-usuario>',
 })
 export class AppComponent {
 

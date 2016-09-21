@@ -6,6 +6,7 @@ import {HttpModule} from "@angular/http";
 import {FormsModule} from "@angular/forms";
 import {HttpService} from "./services/http.service";
 import {LoginComponent} from "./view/login.component";
+import {CadastroUsuarioComponent} from "./view/cadastroUsuario.component";
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import {LoginComponent} from "./view/login.component";
   ],
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    CadastroUsuarioComponent
   ],
   providers: [
     HttpService

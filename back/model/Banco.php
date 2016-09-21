@@ -34,7 +34,7 @@ class Banco
         $this->usuario = "root";
         $this->senha = "";
         $this->link = mysqli_connect($this->host, $this->usuario, $this->senha, $this->banco);
-        return $this->link;
+        echo $this->link;
 //        if ($this->link) {
 //
 //            echo "
@@ -47,7 +47,7 @@ class Banco
 //    \"obs\": \"SHOW o/\"
 //  }
 //}";
-//            return $this->link;
+//            echo $this->link;
 //        } else {
 //            echo "
 //            {
@@ -59,37 +59,35 @@ class Banco
 //    \"obs\": \"SHOW o/\"
 //  }
 //}";
-//            return die();
+//            echo die();
 //        }
     }
 
     public function typeSQL($sql)
     {
 
-        return mysqli_query($this->conexao(), $sql);
+        echo mysqli_query($this->conexao(), $sql);
 
     }
 
     public function cadastrar($sql)
     {
         if ($this->typeSQL($sql)) {
-            return "
+            echo "
         {
-            \"origem\":{
-                \"classe\":\"banco\",
-                \"metodo\":\"cadastrar\"
-            },
-            \"msg\": \"Sucesso!\"
+            \"classe\":\"banco\",
+            \"metodo\":\"cadastrar\",
+            \"msg\": \"Sucesso!\",
+            \"codigo-erro\": \"\"
         }
         ";
         } else {
-            return "
+            echo "
         {
-            \"origem\":{
-                \"classe\":\"banco\",
-                \"metodo\":\"cadastrar\"
-            },
-            \"msg\": \"Erro!\"
+            \"classe\":\"banco\",
+            \"metodo\":\"cadastrar\",
+            \"msg\": \"Erro!\",
+            \"codigo-erro\": \"API ERROR: Erro no backend!\"
         }
         ";
         }
@@ -99,7 +97,7 @@ class Banco
     public function alterar($sql)
     {
         if ($this->typeSQL($sql)) {
-            return "
+            echo "
         {
             \"origem\":{
                 \"classe\":\"banco\",
@@ -109,7 +107,7 @@ class Banco
         }
         ";
         } else {
-            return "
+            echo "
         {
             \"origem\":{
                 \"classe\":\"banco\",
@@ -125,7 +123,7 @@ class Banco
     public function excluir($sql)
     {
         if ($this->typeSQL($sql)) {
-            return "
+            echo "
         {
             \"origem\":{
                 \"classe\":\"banco\",
@@ -135,7 +133,7 @@ class Banco
         }
         ";
         } else {
-            return "
+            echo "
         {
             \"origem\":{
                 \"classe\":\"banco\",

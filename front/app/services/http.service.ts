@@ -27,7 +27,6 @@ export class HttpService {
     postJSON(url:string, body:string) {
         var headers = new Headers();
         try {
-            headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
             return this.http
                 .post(url, body, {headers: headers})
