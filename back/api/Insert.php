@@ -29,16 +29,16 @@ class Insert
         header('Access-Control-Allow-Origin: *');
         header('Access-Control-Allow-Methods: GET, POST, PUT');
 
-        if (isset($_GET['classe']) && $_GET['classe'] == "usuario") {
+        if (isset($_POST['classe']) && $_POST['classe'] == "usuario") {
             $this->doItUsuario();
         }
-        if (isset($_GET['classe']) && $_GET['classe'] == "sorteio") {
+        if (isset($_POST['classe']) && $_POST['classe'] == "sorteio") {
             $this->doItSorteio();
         }
-        if (isset($_GET['classe']) && $_GET['classe'] == "endereco") {
+        if (isset($_POST['classe']) && $_POST['classe'] == "endereco") {
             $this->doItEndereco();
         }
-        if (isset($_GET['classe']) && $_GET['classe'] == "concorrente-sorteio") {
+        if (isset($_POST['classe']) && $_POST['classe'] == "concorrente-sorteio") {
             $this->doItConcorrenteSorteio();
         }
 

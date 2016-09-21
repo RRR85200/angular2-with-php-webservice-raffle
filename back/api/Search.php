@@ -36,18 +36,19 @@ class Search
     function doItUsuario()
 {
     $this->usuario = new Usuario();
-    if (isset($_GET['filtro']) && $_GET['filtro'] == "ativado" &&
-        isset($_GET['valorFiltro']) && $_GET['valorFiltro'] == "0") {
+    if (isset($_GET['filtro'])&&
+        isset($_GET['valorFiltro'])) {
         $this->usuario->tabela ="usuario";
         echo $this->usuario->listarUsuario(1, 1);
 
-        return ";";
     } else {
-        return
+        echo
             "
 {
-\"erro\":\"API-INSERT 001 | Usuario:\",
-\"msg\":\"Não informado qual método a seguir.\"
+  \"api\": {
+     \"erro\":\"API-INSERT 001 | Usuario:\",
+     \"msg\":\"Não informado qual metodo a seguir.\"
+  }
 }
 ";
     }

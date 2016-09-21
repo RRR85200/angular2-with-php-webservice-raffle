@@ -17,10 +17,28 @@ class UsuarioController
         if (isset($_GET["entrar"]) && $_GET['entrar'] == "1") {
 			echo $this->usuario->logarUsuario($_GET['email'], $_GET['senha']);
         }
+
     }
     public function cadastrar()
     {
-        echo $this->usuario->cadastrar($sql);
+        if($_POST['nome'] && $_POST['email'] && $_POST['senha']){
+            $this->usuario->setNome($_POST['nome']);
+            $this->usuario->setEmail($_POST['email']);
+            $this->usuario->setNome($_POST['senha']);
+
+            echo $this->usuario->cadastrarUsuario();
+        }else{
+            echo "
+      {
+            \"erro\":{
+                \"classe\":\"UsuarioController\",
+                \"metodo\":\"cadastrar()\"
+            },
+            \"msg\": \"Não informado algum dos campos obrigatórios!\"
+        }
+        ";
+        }
+
     }
     public function alterar()
     {

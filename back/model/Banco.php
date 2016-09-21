@@ -160,7 +160,6 @@ class Banco
             }
         }
         $this->sql = "SELECT $campos FROM " . $this->tabela . " WHERE " . $filtro . "= " . $valorFiltro . " order by id asc";
-        echo $this->sql;
         $this->query = mysqli_query($this->conexao(), $this->sql);
         $this->result = mysqli_affected_rows($this->conexao());
         if (mysqli_num_rows($this->query) > 0) {

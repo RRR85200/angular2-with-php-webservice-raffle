@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpService} from "../services/http.service";
-import {Headers, Http} from "@angular/http";
+import {Headers, Http, Response} from "@angular/http";
 
 @Component({
     moduleId: module.id,
@@ -18,6 +18,7 @@ export class CadastroUsuarioComponent implements OnInit {
 
     cadastrar(username:string, password:string) {
 
+        this.httpService.getJSON("http://localhost/angular2-with-php-webservice-raffle/back/api/Search.php?q=usuario&filtro=1&valorFiltro=1");
     }
 
     
