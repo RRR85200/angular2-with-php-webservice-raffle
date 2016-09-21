@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpService} from "../services/http.service";
-import {Headers, Http, Response} from "@angular/http";
+import {Http} from "@angular/http";
 
 @Component({
     moduleId: module.id,
@@ -16,9 +16,9 @@ export class CadastroUsuarioComponent implements OnInit {
 
     ngOnInit() { }
 
-    cadastrar(username:string, password:string) {
+    cadastrar(nome:string, email:string, senha:string) {
 
-        this.httpService.getJSON("http://localhost/angular2-with-php-webservice-raffle/back/api/Search.php?q=usuario&filtro=1&valorFiltro=1");
+        this.httpService.postJSON("http://localhost/angular2-with-php-webservice-raffle/back/api/Insert.php","nome=${nome}&email=${email}&senha=${senha}");
     }
 
     
