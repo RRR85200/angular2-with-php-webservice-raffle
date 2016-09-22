@@ -14,6 +14,10 @@ export class HttpService {
     }
 
     getJSON(url:string) {
+        var headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        headers.append('Access-Control-Allow-Origin', '*');
+        headers.append('Access-Control-Allow-Methods', 'GET, POST, PUT');
         try {
             return this.http.get(url)
                 .map((res:Response) => res.json())

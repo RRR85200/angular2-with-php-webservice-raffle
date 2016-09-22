@@ -11,6 +11,9 @@ require_once '../controller/SorteioController.php';
  * Date: 12/09/2016
  * Time: 09:23
  */
+header('Content-Type: application/json', 'charset=utf-8', true);
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: GET, POST, PUT');
 class Insert
 {
     private $usuarioController;
@@ -21,9 +24,7 @@ class Insert
 
     function __construct()
     {
-        header('Content-Type: application/json', 'charset=utf-8', true);
-        header('Access-Control-Allow-Origin: *');
-        header('Access-Control-Allow-Methods: GET, POST, PUT');
+
 
         $this->usuarioController = new UsuarioController();
         $this->concorrenteSorteioController = new ConcorrenteSorteioController();

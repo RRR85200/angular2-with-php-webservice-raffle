@@ -6,6 +6,9 @@
 
         <!-- Text input-->
         <div class="form-group">
+            <div class="alert " [class.alert-success]="msg != null"   role="alert">{{msg}}</div>
+        </div>
+        <div class="form-group">
             <label class="col-md-4 control-label" for="nome">Nome</label>
             <div class="col-md-4">
                 <input id="nome" name="nome" type="text" [(ngModel)]="nome" placeholder="Insira o nome" class="form-control input-md" required="">

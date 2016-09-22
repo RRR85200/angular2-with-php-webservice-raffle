@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Created by PhpStorm.
  * User: Márcio Lucas
@@ -7,6 +6,7 @@
  * Date: 09/09/2016
  * Time: 13:55
  */
+
 class Banco
 {
     private $sql;
@@ -25,6 +25,7 @@ class Banco
     public function __construct()
     {
         $this->conexao();
+
     }
 
     private function conexao()
@@ -66,16 +67,17 @@ class Banco
     public function typeSQL($sql)
     {
 
-        mysqli_query($this->conexao(), $sql);
+        return mysqli_query($this->conexao(), $sql);
 
     }
 
     public function cadastrar($sql)
     {
-
         if ($this->typeSQL($sql)) {
-            return "
-        {\"retorno\" : {
+            http_response_code(200);
+            return
+                "
+        {
 
             \"classe\":\"banco\",
             \"metodo\":\"cadastrar\",
@@ -83,11 +85,11 @@ class Banco
             \"codigo-erro\": \"\"
 
         }
-        }
+        
         ";
         } else {
             return "
-        {\"retorno\" : {
+       {
 
             \"classe\":\"banco\",
             \"metodo\":\"cadastrar\",
@@ -95,7 +97,7 @@ class Banco
             \"codigo-erro\": \"API ERROR: Erro no backend!\"
 
         }
-        }
+       
         ";
 
         }
