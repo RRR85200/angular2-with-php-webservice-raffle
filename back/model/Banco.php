@@ -66,34 +66,38 @@ class Banco
     public function typeSQL($sql)
     {
 
-        echo mysqli_query($this->conexao(), $sql);
+        mysqli_query($this->conexao(), $sql);
 
     }
 
     public function cadastrar($sql)
     {
+
         if ($this->typeSQL($sql)) {
             return "
-        {
-        ola:{
+        {\"retorno\" : {
+
             \"classe\":\"banco\",
             \"metodo\":\"cadastrar\",
             \"msg\": \"Sucesso!\",
-            \"codigo-erro\": \"dss\"
+            \"codigo-erro\": \"\"
+
         }
         }
         ";
         } else {
             return "
-        {
-        ola:{
+        {\"retorno\" : {
+
             \"classe\":\"banco\",
             \"metodo\":\"cadastrar\",
             \"msg\": \"Erro!\",
             \"codigo-erro\": \"API ERROR: Erro no backend!\"
+
         }
         }
         ";
+
         }
 
     }

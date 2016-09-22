@@ -21,14 +21,14 @@ class UsuarioController
     }
     public function cadastrar()
     {
-        if($_POST['nome'] && $_POST['email'] && $_POST['senha']){
-            $this->usuario->setNome($_POST['nome']);
-            $this->usuario->setEmail($_POST['email']);
-            $this->usuario->setNome($_POST['senha']);
+        if($_GET['nome'] && $_GET['email'] && $_GET['senha']){
+            $this->usuario->setNome($_GET['nome']);
+            $this->usuario->setEmail($_GET['email']);
+            $this->usuario->setSenha($_GET['senha']);
 
-            echo $this->usuario->cadastrarUsuario();
+            return $this->usuario->cadastrarUsuario();
         }else{
-            echo "
+            return "
       {
             \"erro\":{
                 \"classe\":\"UsuarioController\",

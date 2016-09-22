@@ -21,7 +21,7 @@ class Insert
 
     function __construct()
     {
-        header('Content-Type: application/json');
+        header('Content-Type: application/json', 'charset=utf-8', true);
         header('Access-Control-Allow-Origin: *');
         header('Access-Control-Allow-Methods: GET, POST, PUT');
 
@@ -32,7 +32,7 @@ class Insert
 
 
         if (isset($_GET['q']) && $_GET['q'] == "usuario") {
-            $this->doItUsuario();
+            echo $this->doItUsuario();
         }
         if (isset($_GET['q']) && $_GET['q'] == "sorteio") {
             $this->doItSorteio();
@@ -48,7 +48,7 @@ class Insert
 
     function doItUsuario()
     {
-        $this->usuarioController->cadastrar();
+        return $this->usuarioController->cadastrar();
     }
 
 

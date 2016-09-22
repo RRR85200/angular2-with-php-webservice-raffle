@@ -26,7 +26,6 @@ export class CadastroUsuarioComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.teste();
     }
 
     retornaValores() {
@@ -36,23 +35,14 @@ export class CadastroUsuarioComponent implements OnInit {
     cadastrar() {
 
         this.httpService.getJSON("http://localhost/angular2-with-php-webservice-raffle/back/api/Insert.php" +
-            "?nome=${this.usuario.nome}&email="+this.nome+"&senha="+this.senha+"&email="+this.email)
+            "?q=usuario&nome="+this.nome+"&email="+this.email+"&senha="+this.senha)
             .subscribe(
                 data => this.callback = data,
                 error => console.log(error),
-                () => console.log(this.callback.msg)
+                () => alert(this.callback.msg)
             )
     }
 
-    teste() {
-
-            this.httpService.getJSON("http://localhost/angular2-with-php-webservice-raffle/back/api/Search.php?q=usuario&filtro=1&valorFiltro=1")
-                .subscribe(
-                    data => this.usuario = data,
-                    error => console.log(error),
-                    () => console.log(this.usuario)
-                )
-    }
 
 
 }
