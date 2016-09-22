@@ -1,5 +1,6 @@
 <?php
 require_once 'Banco.php';
+
 /**
  * Created by PhpStorm.
  * User: Márcio Lucas
@@ -27,7 +28,7 @@ class Usuario extends Banco
      */
     public function setId($id)
     {
-       return $this->id = $id;
+        return $this->id = $id;
     }
 
     /**
@@ -43,7 +44,7 @@ class Usuario extends Banco
      */
     public function setNome($nome)
     {
-       return $this->nome = $nome;
+        return $this->nome = $nome;
     }
 
     /**
@@ -59,7 +60,7 @@ class Usuario extends Banco
      */
     public function setEmail($email)
     {
-       return $this->email = $email;
+        return $this->email = $email;
     }
 
     /**
@@ -75,21 +76,22 @@ class Usuario extends Banco
      */
     public function setSenha($senha)
     {
-       return $this->senha = $senha;
+        return $this->senha = $senha;
     }
 
-    function logarUsuario($email, $senha) {
+    function logarUsuario($email, $senha)
+    {
         if ($this->email == $email && $this->senha == $senha) {
-			
-            return 
-"
+
+            return
+                "
 {
 \"nome\": \"Marcio Lucas\",
-\"email\": \"".$email."\"
+\"email\": \"" . $email . "\"
 }";
-        }else{
+        } else {
             return
-"
+                "
 {
 \"erro:\": \"Erro\"
 }
@@ -99,7 +101,7 @@ class Usuario extends Banco
 
     function cadastrarUsuario()
     {
-        $this->cadastrar("insert into usuario (nome, email, senha) values ('".$this->nome."', '".$this->email."', '".$this->senha."')");
+        return $this->cadastrar("insert into usuario (nome, email, senha) values ('" . $this->nome . "', '" . $this->email . "', '" . $this->senha . "')");
     }
 
     function alterarUsuario()
@@ -109,12 +111,12 @@ class Usuario extends Banco
 
     function excluirUsuario()
     {
-         $this->excluir("update usuario set ativado = 0");
+        $this->excluir("update usuario set ativado = 0");
     }
 
     function listarUsuario($filter, $filterValue)
     {
-        $this->campos = ["id","nome","email","senha"];
-       $this->listar($filter, $filterValue);
+        $this->campos = ["id", "nome", "email", "senha"];
+        $this->listar($filter, $filterValue);
     }
 }

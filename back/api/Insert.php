@@ -3,6 +3,7 @@ require_once '../controller/UsuarioController.php';
 require_once '../controller/ConcorrenteSorteioController.php';
 require_once '../controller/EnderecoController.php';
 require_once '../controller/SorteioController.php';
+
 /**
  * Created by PhpStorm.
  * User: Márcio Lucas
@@ -30,16 +31,16 @@ class Insert
         $this->sorteioController = new SorteioController();
 
 
-        if (isset($_POST['q']) && $_POST['q'] == "usuario") {
+        if (isset($_GET['q']) && $_GET['q'] == "usuario") {
             $this->doItUsuario();
         }
-        if (isset($_POST['q']) && $_POST['q'] == "sorteio") {
+        if (isset($_GET['q']) && $_GET['q'] == "sorteio") {
             $this->doItSorteio();
         }
-        if (isset($_POST['q']) && $_POST['q'] == "endereco") {
+        if (isset($_GET['q']) && $_GET['q'] == "endereco") {
             $this->doItEndereco();
         }
-        if (isset($_POST['q']) && $_POST['q'] == "concorrente-sorteio") {
+        if (isset($_GET['q']) && $_GET['q'] == "concorrente-sorteio") {
             $this->doItConcorrenteSorteio();
         }
 

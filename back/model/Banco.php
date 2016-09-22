@@ -34,7 +34,7 @@ class Banco
         $this->usuario = "root";
         $this->senha = "";
         $this->link = mysqli_connect($this->host, $this->usuario, $this->senha, $this->banco);
-        echo $this->link;
+        return $this->link;
 //        if ($this->link) {
 //
 //            echo "
@@ -73,21 +73,25 @@ class Banco
     public function cadastrar($sql)
     {
         if ($this->typeSQL($sql)) {
-            echo "
+            return "
         {
+        ola:{
             \"classe\":\"banco\",
             \"metodo\":\"cadastrar\",
             \"msg\": \"Sucesso!\",
-            \"codigo-erro\": \"\"
+            \"codigo-erro\": \"dss\"
+        }
         }
         ";
         } else {
-            echo "
+            return "
         {
+        ola:{
             \"classe\":\"banco\",
             \"metodo\":\"cadastrar\",
             \"msg\": \"Erro!\",
             \"codigo-erro\": \"API ERROR: Erro no backend!\"
+        }
         }
         ";
         }
@@ -161,15 +165,16 @@ class Banco
         $this->query = mysqli_query($this->conexao(), $this->sql);
         $this->result = mysqli_affected_rows($this->conexao());
         if (mysqli_num_rows($this->query) > 0) {
-            echo "
- {
-    \"busca\": {
-        \"" . $this->tabela . "\" : {[\n        {\n        ";
+            echo "{
+   \"busca\": {
+        \"" . $this->tabela . "\" : [\n        ";
                 $j = 1;
                 while ($r = mysqli_fetch_array($this->query, MYSQLI_ASSOC)) {
+                    echo "{\n           \"campos\": [\n        ";
                     for ($i = 0; $i < count($this->campos); $i++) {
+                        echo "";
                     echo
-"  {\"" . str_replace("_", " ", $this->campos[$i]) . "\": \"" . $r[$this->campos[$i]] . "\"";
+"      {\"" . str_replace("_", " ", $this->campos[$i]) . "\": \"" . $r[$this->campos[$i]] . "\"";
 
                     if ($i <count($this->campos) - 1) {
                         echo "},\n        ";
@@ -180,15 +185,15 @@ class Banco
 
                 }
         if(mysqli_num_rows($this->query) != $j){
-            echo "},\n        ";
+            echo "] },\n        ";
         }else{
-            echo "}\n        ";
+            echo "] }\n        ";
         }
                     $j++;
 
             }
-            echo "\n    }";
-            echo "\n }";
+            echo "\n   ] }";
+            echo "\n}";
 
 
         } else {
@@ -196,3 +201,33 @@ class Banco
         }
     }
 }
+//
+//{
+//    "busca": {
+//    "usuario" :
+//        [
+//          {"campos": [
+//          {"id": "1"},
+//          {"nome": "marcio"},
+//          {"email": "marciioluucas@gmail.com"},
+//          {"senha": "123"}
+//          ]
+//          },
+//
+//          {"campos": [
+//          {"id": "2"},
+//          {"nome": "marcio2"},
+//          {"email": "marciioluucas2@gmail.com"},
+//          {"senha": "123"}
+//          ]
+//          }
+//        ,
+//          {"campos": [
+//          {"nome": "John Doe"},
+//          {"email": "johndoe@gmail.com"},
+//          {"senha": "alalaalal"}
+//          ]
+//          }
+//          ]
+//    }
+// }
