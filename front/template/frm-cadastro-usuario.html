@@ -1,43 +1,52 @@
-<form class="form-horizontal" method="get">
-    <fieldset>
+<div class="container">
+    <form class="form-horizontal" method="get">
+        <fieldset>
 
-        <!-- Form Name -->
-        <legend>Cadastro de Usuário</legend>
+            <!-- Form Name -->
+            <legend>Dados pessoais</legend>
 
-        <!-- Text input-->
-        <div class="form-group">
-            <div  [class]="msg != null ? 'alert alert-success' : 'alert alert-danger'"
-                  [style.display]="isCallback ? 'block' : 'none'"  role="alert">{{msg}}</div>
-        </div>
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="nome">Nome</label>
-            <div class="col-md-4">
-                <input id="nome" name="nome" type="text" [(ngModel)]="nome" placeholder="Insira o nome"
-                       class="form-control input-md" required="">
-
+            <!-- Text input-->
+            <div class="form-group">
+                <div [class]="msg != null ? 'alert alert-success' : 'alert alert-danger'"
+                     [style.display]="isCallback ? 'block' : 'none'" role="alert">{{msg}}
+                </div>
             </div>
-        </div>
-
-        <!-- Password input-->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="senha">Senha</label>
-            <div class="col-md-4">
-                <input id="senha" name="senha" type="password" [(ngModel)]="senha" placeholder="Insira a senha"
-                       class="form-control input-md" required="">
-
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="nome">Nome</label>
+                <div class="col-md-4">
+                    <input id="nome" name="nome" type="text" [(ngModel)]="nome" placeholder="Insira o nome"
+                           class="form-control input-md" required="">
+                </div>
             </div>
-        </div>
 
-        <!-- Text input-->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="email">E-mail</label>
-            <div class="col-md-4">
-                <input id="email" name="email" type="text" [(ngModel)]="email" placeholder="Insira o email"
-                       class="form-control input-md" required="">
+            <!-- Password input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="senha">Senha</label>
+                <div class="col-md-4">
+                    <input id="senha" name="senha" type="password" [(ngModel)]="senha" placeholder="Insira a senha"
+                           class="form-control input-md" required="">
 
+                </div>
             </div>
-        </div>
 
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="email">E-mail</label>
+                <div class="col-md-4">
+                    <input id="email" name="email" type="text" [(ngModel)]="email" placeholder="Insira o email"
+                           class="form-control input-md" required="">
+
+                </div>
+            </div>
+
+
+
+        </fieldset>
+        <fieldset>
+            <legend>Endereço</legend>
+
+
+        </fieldset>
         <!-- Button -->
         <div class="form-group">
             <label class="col-md-4 control-label" for="Enviar"></label>
@@ -45,6 +54,5 @@
                 <button id="Enviar" name="Enviar" class="btn btn-primary" (click)="cadastrar()">Enviar</button>
             </div>
         </div>
-
-    </fieldset>
-</form>
+    </form>
+</div>

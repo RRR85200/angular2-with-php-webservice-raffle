@@ -78,11 +78,9 @@ class Banco
             return
                 "
         {
-
-            \"classe\":\"banco\",
-            \"metodo\":\"cadastrar\",
+         
             \"msg\": \"Sucesso!\",
-            \"codigo-erro\": \"\"
+            \"id_cadastrado\": \"".mysqli_insert_id($this->link)."\"
 
         }
         

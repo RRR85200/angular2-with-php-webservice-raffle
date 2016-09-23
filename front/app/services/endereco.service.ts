@@ -2,10 +2,16 @@
  * Created by Carlos Eduardo on 23/09/2016.
  */
 import { Injectable } from '@angular/core';
+import {Endereco} from "../model/Endereco";
+import {CIDADESESTADOS} from "../mocks/mock-cidades-estados";
 
 @Injectable()
-export class Service {
+export class EnderecoService {
 
     constructor() { }
+
+    getEnderecoCidadesEstados(): Promise<Endereco[]> {
+        return Promise.resolve(CIDADESESTADOS);
+    }
 
 }
