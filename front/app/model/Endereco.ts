@@ -12,7 +12,7 @@ export class Endereco {
     // private numero: string;
     // private complemento: string;
     sigla:string;
-    nomeCidade:string;
+    nomeEstado:string;
     cidades:string[];
 
 }

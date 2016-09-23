@@ -8,6 +8,7 @@ import {HttpService} from "./services/http.service";
 import {LoginComponent} from "./view/login.component";
 import {CadastroUsuarioComponent} from "./view/cadastroUsuario.component";
 import {EnderecoService} from "./services/endereco.service";
+import {CadastroEnderecoComponent} from "./view/cadastroEndereco.component";
 
 @NgModule({
     imports: [
@@ -18,7 +19,8 @@ import {EnderecoService} from "./services/endereco.service";
     declarations: [
         AppComponent,
         LoginComponent,
-        CadastroUsuarioComponent
+        CadastroUsuarioComponent,
+        CadastroEnderecoComponent
     ],
     providers: [
         HttpService,

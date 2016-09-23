@@ -10,7 +10,7 @@ export class EnderecoService {
 
     constructor() { }
 
-    getEnderecoCidadesEstados(): Promise<Endereco[]> {
+    getCidadeEstados(): Promise<Endereco[]> {
         return Promise.resolve(CIDADESESTADOS);
     }
 

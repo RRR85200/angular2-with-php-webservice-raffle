@@ -7,7 +7,7 @@ export const CIDADESESTADOS: Endereco[] =
     [
         {
             "sigla": "AC",
-            "nomeCidade": "Acre",
+            "nomeEstado": "Acre",
             "cidades": [
                 "Acrelândia",
                 "Assis Brasil",
@@ -35,7 +35,7 @@ export const CIDADESESTADOS: Endereco[] =
         },
         {
             "sigla": "AL",
-            "nomeCidade": "Alagoas",
+            "nomeEstado": "Alagoas",
             "cidades": [
                 "Água Branca",
                 "Anadia",
@@ -143,7 +143,7 @@ export const CIDADESESTADOS: Endereco[] =
         },
         {
             "sigla": "AM",
-            "nomeCidade": "Amazonas",
+            "nomeEstado": "Amazonas",
             "cidades": [
                 "Alvarães",
                 "Amaturá",
@@ -211,7 +211,7 @@ export const CIDADESESTADOS: Endereco[] =
         },
         {
             "sigla": "AP",
-            "nomeCidade": "Amapá",
+            "nomeEstado": "Amapá",
             "cidades": [
                 "Amapá",
                 "Calçoene",
@@ -233,7 +233,7 @@ export const CIDADESESTADOS: Endereco[] =
         },
         {
             "sigla": "BA",
-            "nomeCidade": "Bahia",
+            "nomeEstado": "Bahia",
             "cidades": [
                 "Abaíra",
                 "Abaré",
@@ -656,7 +656,7 @@ export const CIDADESESTADOS: Endereco[] =
         },
         {
             "sigla": "CE",
-            "nomeCidade": "Ceará",
+            "nomeEstado": "Ceará",
             "cidades": [
                 "Abaiara",
                 "Acarapé",
@@ -846,14 +846,14 @@ export const CIDADESESTADOS: Endereco[] =
         },
         {
             "sigla": "DF",
-            "nomeCidade": "Distrito Federal",
+            "nomeEstado": "Distrito Federal",
             "cidades": [
                 "Brasília"
             ]
         },
         {
             "sigla": "ES",
-            "nomeCidade": "Espírito Santo",
+            "nomeEstado": "Espírito Santo",
             "cidades": [
                 "Afonso Cláudio",
                 "Água Doce do Norte",
@@ -937,7 +937,7 @@ export const CIDADESESTADOS: Endereco[] =
         },
         {
             "sigla": "GO",
-            "nomeCidade": "Goiás",
+            "nomeEstado": "Goiás",
             "cidades": [
                 "Abadia de Goiás",
                 "Abadiânia",
@@ -1189,7 +1189,7 @@ export const CIDADESESTADOS: Endereco[] =
         },
         {
             "sigla": "MA",
-            "nomeCidade": "Maranhão",
+            "nomeEstado": "Maranhão",
             "cidades": [
                 "Açailândia",
                 "Afonso Cunha",
@@ -1412,7 +1412,7 @@ export const CIDADESESTADOS: Endereco[] =
         },
         {
             "sigla": "MG",
-            "nomeCidade": "Minas Gerais",
+            "nomeEstado": "Minas Gerais",
             "cidades": [
                 "Abadia dos Dourados",
                 "Abaeté",
@@ -2271,7 +2271,7 @@ export const CIDADESESTADOS: Endereco[] =
         },
         {
             "sigla": "MS",
-            "nomeCidade": "Mato Grosso do Sul",
+            "nomeEstado": "Mato Grosso do Sul",
             "cidades": [
                 "Água Clara",
                 "Alcinópolis",
@@ -2354,7 +2354,7 @@ export const CIDADESESTADOS: Endereco[] =
         },
         {
             "sigla": "MT",
-            "nomeCidade": "Mato Grosso",
+            "nomeEstado": "Mato Grosso",
             "cidades": [
                 "Acorizal",
                 "Água Boa",
@@ -2499,7 +2499,7 @@ export const CIDADESESTADOS: Endereco[] =
         },
         {
             "sigla": "PA",
-            "nomeCidade": "Pará",
+            "nomeEstado": "Pará",
             "cidades": [
                 "Abaetetuba",
                 "Abel Figueiredo",
@@ -2648,7 +2648,7 @@ export const CIDADESESTADOS: Endereco[] =
         },
         {
             "sigla": "PB",
-            "nomeCidade": "Paraíba",
+            "nomeEstado": "Paraíba",
             "cidades": [
                 "Água Branca",
                 "Aguiar",
@@ -2877,7 +2877,7 @@ export const CIDADESESTADOS: Endereco[] =
         },
         {
             "sigla": "PE",
-            "nomeCidade": "Pernambuco",
+            "nomeEstado": "Pernambuco",
             "cidades": [
                 "Abreu e Lima",
                 "Afogados da Ingazeira",
@@ -3068,7 +3068,7 @@ export const CIDADESESTADOS: Endereco[] =
         },
         {
             "sigla": "PI",
-            "nomeCidade": "Piauí",
+            "nomeEstado": "Piauí",
             "cidades": [
                 "Acauã",
                 "Agricolândia",
@@ -3296,7 +3296,7 @@ export const CIDADESESTADOS: Endereco[] =
         },
         {
             "sigla": "PR",
-            "nomeCidade": "Paraná",
+            "nomeEstado": "Paraná",
             "cidades": [
                 "Abatiá",
                 "Adrianópolis",
@@ -3701,7 +3701,7 @@ export const CIDADESESTADOS: Endereco[] =
         },
         {
             "sigla": "RJ",
-            "nomeCidade": "Rio de Janeiro",
+            "nomeEstado": "Rio de Janeiro",
             "cidades": [
                 "Angra dos Reis",
                 "Aperibé",
@@ -3799,7 +3799,7 @@ export const CIDADESESTADOS: Endereco[] =
         },
         {
             "sigla": "RN",
-            "nomeCidade": "Rio Grande do Norte",
+            "nomeEstado": "Rio Grande do Norte",
             "cidades": [
                 "Acari",
                 "Açu",
@@ -3972,7 +3972,7 @@ export const CIDADESESTADOS: Endereco[] =
         },
         {
             "sigla": "RO",
-            "nomeCidade": "Rondônia",
+            "nomeEstado": "Rondônia",
             "cidades": [
                 "Alta Floresta d'Oeste",
                 "Alto Alegre do Parecis",
@@ -4030,7 +4030,7 @@ export const CIDADESESTADOS: Endereco[] =
         },
         {
             "sigla": "RR",
-            "nomeCidade": "Roraima",
+            "nomeEstado": "Roraima",
             "cidades": [
                 "Alto Alegre",
                 "Amajari",
@@ -4051,7 +4051,7 @@ export const CIDADESESTADOS: Endereco[] =
         },
         {
             "sigla": "RS",
-            "nomeCidade": "Rio Grande do Sul",
+            "nomeEstado": "Rio Grande do Sul",
             "cidades": [
                 "Aceguá",
                 "Água Santa",
@@ -4553,7 +4553,7 @@ export const CIDADESESTADOS: Endereco[] =
         },
         {
             "sigla": "SC",
-            "nomeCidade": "Santa Catarina",
+            "nomeEstado": "Santa Catarina",
             "cidades": [
                 "Abdon Batista",
                 "Abelardo Luz",
@@ -4852,7 +4852,7 @@ export const CIDADESESTADOS: Endereco[] =
         },
         {
             "sigla": "SE",
-            "nomeCidade": "Sergipe",
+            "nomeEstado": "Sergipe",
             "cidades": [
                 "Amparo de São Francisco",
                 "Aquidabã",
@@ -4933,7 +4933,7 @@ export const CIDADESESTADOS: Endereco[] =
         },
         {
             "sigla": "SP",
-            "nomeCidade": "São Paulo",
+            "nomeEstado": "São Paulo",
             "cidades": [
                 "Adamantina",
                 "Adolfo",
@@ -5584,7 +5584,7 @@ export const CIDADESESTADOS: Endereco[] =
         },
         {
             "sigla": "TO",
-            "nomeCidade": "Tocantins",
+            "nomeEstado": "Tocantins",
             "cidades": [
                 "Abreulândia",
                 "Aguiarnópolis",

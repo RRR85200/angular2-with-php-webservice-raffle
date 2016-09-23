@@ -38,8 +38,8 @@ export class CadastroUsuarioComponent implements OnInit {
 
     cadastrar() {
 
-        this.httpService.getJSON("http://localhost/angular2-with-php-webservice-raffle/back/api/Insert.php" +
-            "?q=usuario&nome="+this.nome+"&email="+this.email+"&senha="+this.senha)
+        this.httpService.postJSON("http://localhost/angular2-with-php-webservice-raffle/back/api/Insert.php",
+            "q=usuario&nome="+this.nome+"&email="+this.email+"&senha="+this.senha)
             .subscribe(
                 data => this.retorno = data,
                 error => console.log(error),
