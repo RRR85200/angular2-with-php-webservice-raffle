@@ -6,12 +6,14 @@
 
         <!-- Text input-->
         <div class="form-group">
-            <div class="alert " [class.alert-success]="msg != null"   role="alert">{{msg}}</div>
+            <div  [class]="msg != null ? 'alert alert-success' : 'alert alert-danger'"
+                  [style.display]="isCallback ? 'block' : 'none'"  role="alert">{{msg}}</div>
         </div>
         <div class="form-group">
             <label class="col-md-4 control-label" for="nome">Nome</label>
             <div class="col-md-4">
-                <input id="nome" name="nome" type="text" [(ngModel)]="nome" placeholder="Insira o nome" class="form-control input-md" required="">
+                <input id="nome" name="nome" type="text" [(ngModel)]="nome" placeholder="Insira o nome"
+                       class="form-control input-md" required="">
 
             </div>
         </div>
@@ -20,7 +22,8 @@
         <div class="form-group">
             <label class="col-md-4 control-label" for="senha">Senha</label>
             <div class="col-md-4">
-                <input id="senha" name="senha" type="password" [(ngModel)]="senha" placeholder="Insira a senha" class="form-control input-md" required="">
+                <input id="senha" name="senha" type="password" [(ngModel)]="senha" placeholder="Insira a senha"
+                       class="form-control input-md" required="">
 
             </div>
         </div>
@@ -29,7 +32,8 @@
         <div class="form-group">
             <label class="col-md-4 control-label" for="email">E-mail</label>
             <div class="col-md-4">
-                <input id="email" name="email" type="text" [(ngModel)]="email" placeholder="Insira o email" class="form-control input-md" required="">
+                <input id="email" name="email" type="text" [(ngModel)]="email" placeholder="Insira o email"
+                       class="form-control input-md" required="">
 
             </div>
         </div>

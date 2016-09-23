@@ -6,6 +6,5 @@ export class Retorno {
     public metodo:string;
     public msg:string;
     public erro:string;
-    public css:string;
     public classe:string;
 }

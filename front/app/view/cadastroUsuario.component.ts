@@ -16,6 +16,7 @@ export class CadastroUsuarioComponent implements OnInit {
     private usuario: Usuario;
     private data: Object;
     private msg: string = "";
+    private isCallback = false;
     private nome:string;
     private email:string;
     private senha:string;
@@ -32,8 +33,7 @@ export class CadastroUsuarioComponent implements OnInit {
 
     retornaValores() {
         this.msg = this.retorno.msg;
-
-
+        this.isCallback = true;
     }
 
     cadastrar() {
