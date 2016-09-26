@@ -40,6 +40,7 @@ export class CadastroEnderecoComponent implements OnInit {
             this.estadoSelecionado = this.cidadesEstado[y[x].index - 1];
             this.cidades = this.estadoSelecionado.cidades;
         }
+        //TODO: Procurar uma maneira certa de fazer o selectedIndex e o options
         // alert(this.cidades.length);
         // alert(this.cidades);
         // var str = valor;
