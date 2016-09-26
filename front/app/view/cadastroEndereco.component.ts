@@ -33,13 +33,16 @@ export class CadastroEnderecoComponent implements OnInit {
     }
 
 
-    onSelect():void {
-        var x = document.getElementById("estado").selectedIndex;
-        var y = document.getElementById("estado").options;
-        if (y[x].text != "Selecione") {
-            this.estadoSelecionado = this.cidadesEstado[y[x].index - 1];
-            this.cidades = this.estadoSelecionado.cidades;
-        }
+    onSelect(valor:any):void {
+        // var x = document.getElementById("estado").selectedIndex;
+        // var y = document.getElementById("estado").options;
+        // if (y[x].text != "Selecione") {
+
+        // }
+        let indexEstado = (<HTMLSelectElement>valor.srcElement).selectedIndex;
+        this.estadoSelecionado = this.cidadesEstado[indexEstado-1];
+        this.cidades = this.estadoSelecionado.cidades;
+        // alert(this.cidades);
         //TODO: Procurar uma maneira certa de fazer o selectedIndex e o options
         // alert(this.cidades.length);
         // alert(this.cidades);
