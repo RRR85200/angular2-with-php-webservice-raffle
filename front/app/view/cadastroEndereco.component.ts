@@ -1,8 +1,7 @@
 /**
  * Created by Márcio Lucas on 23/09/2016.
  */
-import { Component, OnInit } from '@angular/core';
-import {EnderecoService} from "../services/endereco.service";
+import {Component, OnInit} from '@angular/core';
 import {Endereco} from "../model/Endereco";
 import {HttpService} from "../services/http.service";
 
@@ -13,11 +12,13 @@ import {HttpService} from "../services/http.service";
 })
 export class CadastroEnderecoComponent implements OnInit {
 
-    private cidadesEstado: Endereco[];
-    private estadoSelecionado: Endereco;
+    private cidadesEstado:Endereco[];
+    private estadoSelecionado:Endereco;
+    public cidades:any[];
 
 
-    constructor(private httpService: HttpService) { }
+    constructor(private httpService:HttpService) {
+    }
 
     ngOnInit() {
         this.getCidadeEstados();
@@ -28,11 +29,22 @@ export class CadastroEnderecoComponent implements OnInit {
             .subscribe(
                 data => this.cidadesEstado = data,
                 error => console.log(error)
-            )
+            );
     }
 
-    onSelect(estado: Endereco): void {
-        this.estadoSelecionado = estado;
+
+    onSelect():void {
+        var x = document.getElementById("estado").selectedIndex;
+        var y = document.getElementById("estado").options;
+        if (y[x].text != "Selecione") {
+            this.estadoSelecionado = this.cidadesEstado[y[x].index - 1];
+            this.cidades = this.estadoSelecionado.cidades;
+        }
+        // alert(this.cidades.length);
+        // alert(this.cidades);
+        // var str = valor;
+        // var res = str.split(",");
+        // this.cidades = res;
     }
 
 }

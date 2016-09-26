@@ -12,9 +12,9 @@
         <div class="form-group">
             <label class="col-md-4 control-label" for="estado">Estado</label>
             <div class="col-md-4">
-                <select id="estado" name="estado" class="form-control" >
-                    <option value="{{estado.sigla}}" *ngFor="let estado of cidadesEstado"
-                            (select)="onSelect(estado)">{{estado.nome}}</option>
+                <select id="estado" name="estado" class="form-control" (change)="onSelect()">
+                    <option value="selecione">Selecione</option>
+                    <option value="{{estado.sigla}}" *ngFor="let estado of cidadesEstado" >{{estado.nome}}</option>
                 </select>
             </div>
         </div>
@@ -24,7 +24,8 @@
             <label class="col-md-4 control-label" for="cidade">Cidade</label>
             <div class="col-md-4">
                 <select id="cidade" name="cidade" class="form-control">
-                    <option value="{{estadoSelecionado.cidades[1]}}">{{estadoSelecionado.cidades[1]}}</option>
+                    <option value="selecione" >Selecione</option>
+                    <option value="{{cidade}}" *ngFor="let cidade of cidades">{{cidade}}</option>
                 </select>
             </div>
         </div>
