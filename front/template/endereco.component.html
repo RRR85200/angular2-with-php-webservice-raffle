@@ -3,49 +3,51 @@
 <!--* E-mail: marciioluucas@gmail.com-->
 <!--* Date: 23/09/2016-->
 <!--* Time: 10:17-->
-    <fieldset>
+<fieldset>
 
-        <!-- Form Name -->
-        <legend>Endereço</legend>
+    <!-- Form Name -->
+    <legend>Endereço</legend>
 
-        <!-- Select Basic -->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="estado">Estado</label>
-            <div class="col-md-4">
-                <select id="estado" name="estado" class="form-control" (change)="onSelect($event)">
-                    <option value="selecione">Selecione</option>
-                    <option [value]="estado.sigla" *ngFor="let estado of cidadesEstado" >{{estado.nome}}</option>
-                </select>
-            </div>
+    <!-- Select Basic -->
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="estado">Estado</label>
+        <div class="col-md-4">
+            <select id="estado" name="estado" class="form-control" (change)="onSelect($event)">
+                <option value="selecione">Selecione</option>
+                <option [value]="estado.sigla" *ngFor="let estado of cidadesEstado">{{estado.nome}}</option>
+            </select>
         </div>
+    </div>
 
-        <!-- Select Basic -->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="cidade">Cidade</label>
-            <div class="col-md-4">
-                <select id="cidade" name="cidade" class="form-control">
-                    <option value="selecione" >Selecione</option>
-                    <option value="{{cidade}}" *ngFor="let cidade of cidades">{{cidade}}</option>
-                </select>
-            </div>
+    <!-- Select Basic -->
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="cidade">Cidade</label>
+        <div class="col-md-4">
+            <select id="cidade" name="cidade" class="form-control" [(ngModel)]="endereco.cidade">
+                <option value="selecione">Selecione</option>
+                <option value="{{cidade}}" *ngFor="let cidade of cidades">{{cidade}}</option>
+            </select>
         </div>
+    </div>
 
-        <!-- Text input-->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="cep">CEP</label>
-            <div class="col-md-4">
-                <input id="cep" name="cep" type="text" placeholder="Insira o CEP" class="form-control input-md" required="">
-                <span class="help-block">Escreva o CEP da sua cidade</span>
-            </div>
+    <!-- Text input-->
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="cep">CEP</label>
+        <div class="col-md-4">
+            <input id="cep" name="cep" type="text" placeholder="Insira o CEP" class="form-control input-md" required=""
+                   [(ngModel)]="endereco.cep">
+            <span class="help-block">Escreva o CEP da sua cidade</span>
         </div>
+    </div>
 
-        <!-- Text input-->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="endereco">Endereço</label>
-            <div class="col-md-4">
-                <input id="endereco" name="endereco" type="text" placeholder="Insira seu endereço" class="form-control input-md" required="">
-                <span class="help-block">Escreva seu endereço por extenso</span>
-            </div>
+    <!-- Text input-->
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="endereco">Endereço</label>
+        <div class="col-md-4">
+            <input id="endereco" name="endereco" type="text" placeholder="Insira seu endereço"
+                   class="form-control input-md" required="" [(ngModel)]="endereco.enderecoPorExtenso">
+            <span class="help-block">Escreva seu endereço por extenso</span>
         </div>
-    </fieldset>
+    </div>
+</fieldset>
 

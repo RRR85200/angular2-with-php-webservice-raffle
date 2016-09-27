@@ -50,7 +50,7 @@ class Insert
 
     function doItUsuario()
     {
-        return $this->usuarioController->cadastrar();
+         $this->usuarioController->cadastrar();
     }
 
 

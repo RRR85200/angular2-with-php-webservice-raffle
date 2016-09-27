@@ -10,14 +10,10 @@
 class Endereco extends Banco
 {
     private $id;
-    private $idUsuario;
-    private $pais;
     private $estado;
     private $cidade;
-    private $bairro;
-    private $rua;
-    private $numero;
-    private $complemento;
+    private $endereco;
+    private $cep;
 
     /**
      * @return mixed
@@ -33,38 +29,6 @@ class Endereco extends Banco
     public function setId($id)
     {
         $this->id = $id;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getIdUsuario()
-    {
-        return $this->idUsuario;
-    }
-
-    /**
-     * @param mixed $idUsuario
-     */
-    public function setIdUsuario($idUsuario)
-    {
-        $this->idUsuario = $idUsuario;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getPais()
-    {
-        return $this->pais;
-    }
-
-    /**
-     * @param mixed $pais
-     */
-    public function setPais($pais)
-    {
-        $this->pais = $pais;
     }
 
     /**
@@ -102,66 +66,57 @@ class Endereco extends Banco
     /**
      * @return mixed
      */
-    public function getBairro()
+    public function getEndereco()
     {
-        return $this->bairro;
+        return $this->endereco;
     }
 
     /**
-     * @param mixed $bairro
+     * @param mixed $endereco
      */
-    public function setBairro($bairro)
+    public function setEndereco($endereco)
     {
-        $this->bairro = $bairro;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getRua()
-    {
-        return $this->rua;
-    }
-
-    /**
-     * @param mixed $rua
-     */
-    public function setRua($rua)
-    {
-        $this->rua = $rua;
+        $this->endereco = $endereco;
     }
 
     /**
      * @return mixed
      */
-    public function getNumero()
+    public function getCep()
     {
-        return $this->numero;
+        return $this->cep;
     }
 
     /**
-     * @param mixed $numero
+     * @param mixed $cep
      */
-    public function setNumero($numero)
+    public function setCep($cep)
     {
-        $this->numero = $numero;
+        $this->cep = $cep;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getComplemento()
+
+    function cadastrarEndereco()
     {
-        return $this->complemento;
+        echo $this->cadastrar("insert into endereco (cidade, estado, endereco, cep) values ('" . $this->cidade . "',
+         '" . $this->estado . "', '" . $this->endereco . "', '" . $this->cep . "')");
     }
 
-    /**
-     * @param mixed $complemento
-     */
-    public function setComplemento($complemento)
+    function alterarEndereco()
     {
-        $this->complemento = $complemento;
+        $this->alterar("update endereco set cidade = '$this->cidade', estado = '$this->estado',
+ endereco = '$this->endereco', cep = '" . $this->cep . "' where id = " . $this->id);
     }
 
+    function excluirEndereco()
+    {
+        $this->excluir("update endereco set ativado = 0");
+    }
+
+    function listarEndereco($filter, $filterValue)
+    {
+        $this->campos = ["id", "cidade", "estado", "endereco", "cep"];
+        $this->listar($filter, $filterValue);
+    }
 
 }

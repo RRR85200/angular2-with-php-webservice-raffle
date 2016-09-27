@@ -11,8 +11,10 @@ export class Endereco {
     // private rua: string;
     // private numero: string;
     // private complemento: string;
-    public sigla:string;
-    public nomeEstado:string;
-    public cidades:string[];
+    public estado:string;
+    public cidade:string;
+    public cep:string;
+    public enderecoPorExtenso:string;
+
 
 }

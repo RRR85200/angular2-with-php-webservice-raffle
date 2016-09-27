@@ -4,6 +4,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Endereco} from "../model/Endereco";
 import {HttpService} from "../services/http.service";
+import {CidadesEstado} from "../model/CidadesEstado";
 
 @Component({
     moduleId: module.id,
@@ -12,8 +13,8 @@ import {HttpService} from "../services/http.service";
 })
 export class CadastroEnderecoComponent implements OnInit {
 
-    private cidadesEstado:Endereco[];
-    private estadoSelecionado:Endereco;
+    private cidadesEstado:CidadesEstado[];
+    private estadoSelecionado:CidadesEstado;
     public cidades:any[];
 
 
