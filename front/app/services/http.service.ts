@@ -29,7 +29,10 @@ export class HttpService {
     }
 
     postJSON(url:string, body:string) {
+
+
         var headers = new Headers();
+        headers.append('Content-Type', 'application/x-www-form-urlencoded');
         try {
 
             return this.http

@@ -12,6 +12,7 @@ require_once '../controller/SorteioController.php';
  * Time: 09:23
  */
 header('Content-Type: application/json', 'charset=utf-8', true);
+header('Content-Type: application/x-www-form-urlencoded', 'charset=utf-8', true);
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST, PUT');
 class Insert
@@ -32,16 +33,16 @@ class Insert
         $this->sorteioController = new SorteioController();
 
 
-        if (isset($_GET['q']) && $_GET['q'] == "usuario") {
+        if (isset($_POST['q']) && $_POST['q'] == "usuario") {
             echo $this->doItUsuario();
         }
-        if (isset($_GET['q']) && $_GET['q'] == "sorteio") {
+        if (isset($_POST['q']) && $_POST['q'] == "sorteio") {
             $this->doItSorteio();
         }
-        if (isset($_GET['q']) && $_GET['q'] == "endereco") {
+        if (isset($_POST['q']) && $_POST['q'] == "endereco") {
             $this->doItEndereco();
         }
-        if (isset($_GET['q']) && $_GET['q'] == "concorrente-sorteio") {
+        if (isset($_POST['q']) && $_POST['q'] == "concorrente-sorteio") {
             $this->doItConcorrenteSorteio();
         }
 

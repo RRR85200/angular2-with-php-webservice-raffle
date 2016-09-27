@@ -20,6 +20,7 @@ export class CadastroUsuarioComponent implements OnInit {
     private nome:string;
     private email:string;
     private senha:string;
+    private idCadastrado: string;
 
     private http:Http;
 
@@ -34,12 +35,18 @@ export class CadastroUsuarioComponent implements OnInit {
     retornaValores() {
         this.msg = this.retorno.msg;
         this.isCallback = true;
+        this.idCadastrado = this.retorno.id_cadastrado;
     }
 
     cadastrar() {
 
+
+        let body:string;
+        body = "q=usuario&nome="+this.nome+"&email="+this.email+"&senha="+this.senha;
+
+
         this.httpService.postJSON("http://localhost/angular2-with-php-webservice-raffle/back/api/Insert.php",
-            "q=usuario&nome="+this.nome+"&email="+this.email+"&senha="+this.senha)
+            body)
             .subscribe(
                 data => this.retorno = data,
                 error => console.log(error),

@@ -7,4 +7,5 @@ export class Retorno {
     public msg:string;
     public erro:string;
     public classe:string;
+    public id_cadastrado:string;
 }
