@@ -45,7 +45,7 @@ export class CadastroUsuarioComponent implements OnInit {
         body = "q=usuario&nome="+this.nome+"&email="+this.email+"&senha="+this.senha;
 
 
-        this.httpService.postJSON("http://localhost/angular2-with-php-webservice-raffle/back/api/Insert.php",
+        this.httpService.postJSON("http://192.168.0.104/angular2-with-php-webservice-raffle/back/api/Insert.php",
             body)
             .subscribe(
                 data => this.retorno = data,

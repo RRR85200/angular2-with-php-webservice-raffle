@@ -8,7 +8,9 @@
     "tsc": "tsc",
     "tsc:w": "tsc -w",
     "typings": "typings"
+
   },
+  "serve": "serve",
   "license": "ISC",
   "dependencies": {
     "@angular/common": "2.0.0",
